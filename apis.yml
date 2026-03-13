@@ -1,0 +1,32 @@
+aid: microsoft-azure-site-recovery
+url: https://raw.githubusercontent.com/api-evangelist/microsoft-azure-site-recovery/refs/heads/main/apis.yml
+apis:
+  - aid: microsoft-azure-site-recovery:rest-api
+    name: Azure Site Recovery REST API
+    tags:
+      - Disaster Recovery
+      - Replication
+      - Business Continuity
+      - Failover
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://management.azure.com/
+    humanURL: https://learn.microsoft.com/en-us/rest/api/site-recovery/
+    properties:
+      - url: https://learn.microsoft.com/en-us/rest/api/site-recovery/
+        type: Documentation
+    description: >-
+      Azure Site Recovery REST API provides management of disaster recovery for Azure VMs, on-premises VMs, and physical servers. It supports configuring replication, running test failovers, executing planned and unplanned failovers, and managing recovery plans.
+common:
+  - type: Portal
+    url: https://portal.azure.com/
+  - type: Pricing
+    url: https://azure.microsoft.com/en-us/pricing/
+  - type: Terms of Service
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  - type: Privacy Policy
+    url: https://privacy.microsoft.com/en-us/privacystatement
+  - type: Support
+    url: https://support.microsoft.com/
+maintainers:
+  - name: Kin Lane
+    email: kin@apievangelist.com
