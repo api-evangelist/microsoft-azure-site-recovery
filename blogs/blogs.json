@@ -1,0 +1,13 @@
+{
+  "repo": "microsoft-azure-site-recovery",
+  "feeds": [
+    {
+      "source": "https://azure.microsoft.com/en-us/blog/product/site-recovery/",
+      "feed_url": "https://azure.microsoft.com/en-us/blog/feed/",
+      "saved": 10,
+      "title": "Microsoft Azure Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:32:21Z"
+}
