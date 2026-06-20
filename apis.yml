@@ -6,7 +6,7 @@ description: >-
   Azure VMs, on-premises VMs, and physical servers. It supports configuring
   replication, running test failovers, executing planned and unplanned failovers,
   and managing recovery plans.
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Disaster Recovery
   - Replication
@@ -23,7 +23,7 @@ apis:
       Azure VMs, on-premises VMs, and physical servers. It supports configuring
       replication, running test failovers, executing planned and unplanned failovers,
       and managing recovery plans.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://learn.microsoft.com/en-us/rest/api/site-recovery/
     baseURL: https://management.azure.com/
     tags:
