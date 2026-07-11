@@ -37,6 +37,8 @@ apis:
       - type: Authentication
         url: https://learn.microsoft.com/en-us/azure/active-directory/develop/authentication-flows-app-scenarios
 common:
+  - type: OAuthScopes
+    url: scopes/microsoft-azure-site-recovery-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/Azure
   - type: Portal
