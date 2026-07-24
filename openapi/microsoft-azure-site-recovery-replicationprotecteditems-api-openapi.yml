@@ -1,0 +1,355 @@
+openapi: 3.1.0
+info:
+  title: Azure Site Recovery REST RecoveryPlans ReplicationProtectedItems API
+  description: 'Azure Site Recovery REST API provides management of disaster recovery for
+
+    Azure VMs, on-premises VMs, and physical servers via Azure Resource Manager.
+
+    Supports configuring replication, running test failovers, executing planned
+
+    and unplanned failovers, and managing recovery plans on Recovery Services
+
+    vaults. Authentication uses Azure AD OAuth 2.0 bearer tokens.
+
+    '
+  version: '2026-02-01'
+  contact:
+    name: Kin Lane
+    email: kin@apievangelist.com
+  license:
+    name: Microsoft Terms of Use
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- azure_auth:
+  - user_impersonation
+tags:
+- name: ReplicationProtectedItems
+  description: Manage replication protected items in a Recovery Services vault
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems
+  : get:
+      tags:
+      - ReplicationProtectedItems
+      summary: List replication protected items by container
+      operationId: replicationProtectedItems_listByReplicationProtectionContainers
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/resourceName'
+      - $ref: '#/components/parameters/fabricName'
+      - $ref: '#/components/parameters/protectionContainerName'
+      - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReplicationProtectedItemCollection'
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}
+  : get:
+      tags:
+      - ReplicationProtectedItems
+      summary: Get a replication protected item
+      operationId: replicationProtectedItems_get
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/resourceName'
+      - $ref: '#/components/parameters/fabricName'
+      - $ref: '#/components/parameters/protectionContainerName'
+      - $ref: '#/components/parameters/replicatedProtectedItemName'
+      - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReplicationProtectedItem'
+    put:
+      tags:
+      - ReplicationProtectedItems
+      summary: Enable replication protection for an item
+      operationId: replicationProtectedItems_create
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/resourceName'
+      - $ref: '#/components/parameters/fabricName'
+      - $ref: '#/components/parameters/protectionContainerName'
+      - $ref: '#/components/parameters/replicatedProtectedItemName'
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnableProtectionInput'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReplicationProtectedItem'
+        '202':
+          description: Accepted
+    patch:
+      tags:
+      - ReplicationProtectedItems
+      summary: Update replication protected item settings
+      operationId: replicationProtectedItems_update
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/resourceName'
+      - $ref: '#/components/parameters/fabricName'
+      - $ref: '#/components/parameters/protectionContainerName'
+      - $ref: '#/components/parameters/replicatedProtectedItemName'
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '202':
+          description: Accepted
+    delete:
+      tags:
+      - ReplicationProtectedItems
+      summary: Disable protection for an item
+      operationId: replicationProtectedItems_delete
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/resourceName'
+      - $ref: '#/components/parameters/fabricName'
+      - $ref: '#/components/parameters/protectionContainerName'
+      - $ref: '#/components/parameters/replicatedProtectedItemName'
+      - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '202':
+          description: Accepted
+        '204':
+          description: No Content
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}/plannedFailover
+  : post:
+      tags:
+      - ReplicationProtectedItems
+      summary: Execute planned failover
+      operationId: replicationProtectedItems_plannedFailover
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/resourceName'
+      - $ref: '#/components/parameters/fabricName'
+      - $ref: '#/components/parameters/protectionContainerName'
+      - $ref: '#/components/parameters/replicatedProtectedItemName'
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '202':
+          description: Accepted
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}/testFailover
+  : post:
+      tags:
+      - ReplicationProtectedItems
+      summary: Execute test failover
+      operationId: replicationProtectedItems_testFailover
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/resourceName'
+      - $ref: '#/components/parameters/fabricName'
+      - $ref: '#/components/parameters/protectionContainerName'
+      - $ref: '#/components/parameters/replicatedProtectedItemName'
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '202':
+          description: Accepted
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}/unplannedFailover
+  : post:
+      tags:
+      - ReplicationProtectedItems
+      summary: Execute unplanned failover
+      operationId: replicationProtectedItems_unplannedFailover
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/resourceName'
+      - $ref: '#/components/parameters/fabricName'
+      - $ref: '#/components/parameters/protectionContainerName'
+      - $ref: '#/components/parameters/replicatedProtectedItemName'
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '202':
+          description: Accepted
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}/failoverCommit
+  : post:
+      tags:
+      - ReplicationProtectedItems
+      summary: Commit failover
+      operationId: replicationProtectedItems_failoverCommit
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/resourceName'
+      - $ref: '#/components/parameters/fabricName'
+      - $ref: '#/components/parameters/protectionContainerName'
+      - $ref: '#/components/parameters/replicatedProtectedItemName'
+      - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '202':
+          description: Accepted
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}/reProtect
+  : post:
+      tags:
+      - ReplicationProtectedItems
+      summary: Reverse replication / reprotect
+      operationId: replicationProtectedItems_reprotect
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/resourceName'
+      - $ref: '#/components/parameters/fabricName'
+      - $ref: '#/components/parameters/protectionContainerName'
+      - $ref: '#/components/parameters/replicatedProtectedItemName'
+      - $ref: '#/components/parameters/apiVersion'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '202':
+          description: Accepted
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationProtectedItems
+  : get:
+      tags:
+      - ReplicationProtectedItems
+      summary: List all replication protected items in the vault
+      operationId: replicationProtectedItems_list
+      parameters:
+      - $ref: '#/components/parameters/subscriptionId'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/resourceName'
+      - $ref: '#/components/parameters/apiVersion'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReplicationProtectedItemCollection'
+components:
+  schemas:
+    ReplicationProtectedItemCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReplicationProtectedItem'
+        nextLink:
+          type: string
+    ReplicationProtectedItem:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        location:
+          type: string
+        properties:
+          type: object
+    EnableProtectionInput:
+      type: object
+      properties:
+        properties:
+          type: object
+          properties:
+            policyId:
+              type: string
+            protectableItemId:
+              type: string
+            providerSpecificDetails:
+              type: object
+  parameters:
+    replicatedProtectedItemName:
+      name: replicatedProtectedItemName
+      in: path
+      required: true
+      schema:
+        type: string
+    fabricName:
+      name: fabricName
+      in: path
+      required: true
+      schema:
+        type: string
+    subscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      schema:
+        type: string
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      required: true
+      schema:
+        type: string
+        minLength: 1
+        maxLength: 90
+    resourceName:
+      name: resourceName
+      in: path
+      required: true
+      description: Name of the Recovery Services Vault
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      schema:
+        type: string
+        default: '2026-02-01'
+    protectionContainerName:
+      name: protectionContainerName
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    azure_auth:
+      type: oauth2
+      description: Azure Active Directory OAuth 2.0 bearer token
+      flows:
+        implicit:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+          scopes:
+            user_impersonation: impersonate your user account
