@@ -1,0 +1,16 @@
+{
+  "provider": "microsoft-azure-site-recovery",
+  "sources": [
+    "microsoft-azure-site-recovery-recoveryplans-api-openapi.yml",
+    "microsoft-azure-site-recovery-replicationprotecteditems-api-openapi.yml"
+  ],
+  "outputs": [
+    "microsoft-azure-site-recovery-recoveryplans-api-openapi.yml",
+    "microsoft-azure-site-recovery-replicationprotecteditems-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
