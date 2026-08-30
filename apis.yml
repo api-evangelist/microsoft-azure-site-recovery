@@ -67,7 +67,7 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/rest/api/site-recovery/
   baseURL: https://management.azure.com/
   tags:
-  - Recovery Plans
+  - RecoveryPlans
   tags_raw:
   - RecoveryPlans
   properties:
