@@ -1,6 +1,7 @@
 aid: microsoft-azure-site-recovery
-url: https://raw.githubusercontent.com/api-evangelist/microsoft-azure-site-recovery/refs/heads/main/apis.yml
+url: https://learn.microsoft.com/en-us/azure/site-recovery/
 name: Azure Site Recovery
+x-parent: microsoft-azure
 description: >-
   Azure Site Recovery REST API provides management of disaster recovery for
   Azure VMs, on-premises VMs, and physical servers. It supports configuring
