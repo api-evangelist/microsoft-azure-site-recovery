@@ -2,11 +2,9 @@ aid: microsoft-azure-site-recovery
 url: https://learn.microsoft.com/en-us/azure/site-recovery/
 name: Azure Site Recovery
 x-parent: microsoft-azure
-description: >-
-  Azure Site Recovery REST API provides management of disaster recovery for
-  Azure VMs, on-premises VMs, and physical servers. It supports configuring
-  replication, running test failovers, executing planned and unplanned failovers,
-  and managing recovery plans.
+description: Azure Site Recovery REST API provides management of disaster recovery for Azure VMs, on-premises
+  VMs, and physical servers. It supports configuring replication, running test failovers, executing planned
+  and unplanned failovers, and managing recovery plans.
 deliveryModel:
   model: saas
   open_source: false
@@ -34,20 +32,19 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-azure-site-recovery.png
 tags:
-  - Disaster Recovery
-  - Replication
-  - Business Continuity
-  - Failover
+- Disaster Recovery
+- Replication
+- Business Continuity
+- Failover
 created: '2026-03-13'
-modified: '2026-04-28'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: microsoft-azure-site-recovery:rest-api
   name: Azure Site Recovery REST API
-  description: >-
-    Azure Site Recovery REST API provides management of disaster recovery for Azure VMs, on-premises VMs,
-    and physical servers. It supports configuring replication, running test failovers, executing planned
-    and unplanned failovers, and managing recovery plans.
+  description: Azure Site Recovery REST API provides management of disaster recovery for Azure VMs, on-premises
+    VMs, and physical servers. It supports configuring replication, running test failovers, executing
+    planned and unplanned failovers, and managing recovery plans.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://learn.microsoft.com/en-us/rest/api/site-recovery/
   baseURL: https://management.azure.com/
@@ -60,8 +57,7 @@ apis:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/site-recovery/
   - type: Authentication
-    url: >-
-      https://learn.microsoft.com/en-us/azure/active-directory/develop/authentication-flows-app-scenarios
+    url: https://learn.microsoft.com/en-us/azure/active-directory/develop/authentication-flows-app-scenarios
 - aid: microsoft-azure-site-recovery:microsoft-azure-site-recovery-recoveryplans-api
   name: Azure Site Recovery RecoveryPlans API
   description: Manage recovery plans for orchestrated failover
@@ -74,8 +70,7 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/microsoft-azure-site-recovery-recoveryplans-api-openapi.yml
-- aid: >-
-    microsoft-azure-site-recovery:microsoft-azure-site-recovery-replicationprotecteditems-api
+- aid: microsoft-azure-site-recovery:microsoft-azure-site-recovery-replicationprotecteditems-api
   name: Azure Site Recovery ReplicationProtectedItems API
   description: Manage replication protected items in a Recovery Services vault
   humanURL: https://learn.microsoft.com/en-us/rest/api/site-recovery/
@@ -86,38 +81,40 @@ apis:
   - type: OpenAPI
     url: openapi/microsoft-azure-site-recovery-replicationprotecteditems-api-openapi.yml
 common:
-  - type: AgenticAccess
-    url: agentic-access/microsoft-azure-site-recovery-agentic-access.yml
-  - type: DomainSecurity
-    url: security/microsoft-azure-site-recovery-domain-security.yml
-  - type: Authentication
-    url: authentication/microsoft-azure-site-recovery-authentication.yml
-  - type: OAuthScopes
-    url: scopes/microsoft-azure-site-recovery-scopes.yml
-  - type: GitHubOrganization
-    url: https://github.com/Azure
-  - type: Portal
-    url: https://portal.azure.com/
-  - type: Pricing
-    url: https://azure.microsoft.com/en-us/pricing/details/site-recovery/
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/azure/site-recovery/
-  - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-quickstart
-  - type: StatusPage
-    url: https://azure.status.microsoft/en-us/status
-  - type: TermsOfService
-    url: https://www.microsoft.com/en-us/legal/terms-of-use
-  - type: PrivacyPolicy
-    url: https://privacy.microsoft.com/en-us/privacystatement
-  - type: Support
-    url: https://support.microsoft.com/
-  - type: Blog
-    url: https://azure.microsoft.com/en-us/blog/product/site-recovery/
-  - type: StackOverflow
-    url: https://stackoverflow.com/questions/tagged/azure-site-recovery
-  - type: LlmsText
-    url: https://portal.azure.com/llms.txt
+- type: Website
+  url: https://microsoft.com
+- type: AgenticAccess
+  url: agentic-access/microsoft-azure-site-recovery-agentic-access.yml
+- type: DomainSecurity
+  url: security/microsoft-azure-site-recovery-domain-security.yml
+- type: Authentication
+  url: authentication/microsoft-azure-site-recovery-authentication.yml
+- type: OAuthScopes
+  url: scopes/microsoft-azure-site-recovery-scopes.yml
+- type: GitHubOrganization
+  url: https://github.com/Azure
+- type: Portal
+  url: https://portal.azure.com/
+- type: Pricing
+  url: https://azure.microsoft.com/en-us/pricing/details/site-recovery/
+- type: Documentation
+  url: https://learn.microsoft.com/en-us/azure/site-recovery/
+- type: GettingStarted
+  url: https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-quickstart
+- type: StatusPage
+  url: https://azure.status.microsoft/en-us/status
+- type: TermsOfService
+  url: https://www.microsoft.com/en-us/legal/terms-of-use
+- type: PrivacyPolicy
+  url: https://privacy.microsoft.com/en-us/privacystatement
+- type: Support
+  url: https://support.microsoft.com/
+- type: Blog
+  url: https://azure.microsoft.com/en-us/blog/product/site-recovery/
+- type: StackOverflow
+  url: https://stackoverflow.com/questions/tagged/azure-site-recovery
+- type: LlmsText
+  url: https://portal.azure.com/llms.txt
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
