@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Azure Site Recovery REST RecoveryPlans API
+  title: Azure Site Recovery REST Recovery Plans API
   description: 'Azure Site Recovery REST API provides management of disaster recovery for
 
     Azure VMs, on-premises VMs, and physical servers via Azure Resource Manager.
@@ -9,9 +9,7 @@ info:
 
     and unplanned failovers, and managing recovery plans on Recovery Services
 
-    vaults. Authentication uses Azure AD OAuth 2.0 bearer tokens.
-
-    '
+    vaults. Authentication uses Azure AD OAuth 2.0 bearer tokens.'
   version: '2026-02-01'
   contact:
     name: Kin Lane
@@ -106,11 +104,17 @@ paths:
           description: No Content
 components:
   parameters:
-    resourceName:
-      name: resourceName
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      schema:
+        type: string
+        default: '2026-02-01'
+    subscriptionId:
+      name: subscriptionId
       in: path
       required: true
-      description: Name of the Recovery Services Vault
       schema:
         type: string
     resourceGroupName:
@@ -121,19 +125,13 @@ components:
         type: string
         minLength: 1
         maxLength: 90
-    subscriptionId:
-      name: subscriptionId
+    resourceName:
+      name: resourceName
       in: path
       required: true
+      description: Name of the Recovery Services Vault
       schema:
         type: string
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      schema:
-        type: string
-        default: '2026-02-01'
   securitySchemes:
     azure_auth:
       type: oauth2
