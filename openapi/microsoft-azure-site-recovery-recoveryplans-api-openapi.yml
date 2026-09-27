@@ -104,6 +104,14 @@ paths:
           description: No Content
 components:
   parameters:
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      required: true
+      schema:
+        type: string
+        minLength: 1
+        maxLength: 90
     apiVersion:
       name: api-version
       in: query
@@ -117,14 +125,6 @@ components:
       required: true
       schema:
         type: string
-    resourceGroupName:
-      name: resourceGroupName
-      in: path
-      required: true
-      schema:
-        type: string
-        minLength: 1
-        maxLength: 90
     resourceName:
       name: resourceName
       in: path
