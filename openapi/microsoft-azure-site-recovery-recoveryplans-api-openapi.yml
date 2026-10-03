@@ -112,6 +112,13 @@ components:
         type: string
         minLength: 1
         maxLength: 90
+    resourceName:
+      name: resourceName
+      in: path
+      required: true
+      description: Name of the Recovery Services Vault
+      schema:
+        type: string
     apiVersion:
       name: api-version
       in: query
@@ -123,13 +130,6 @@ components:
       name: subscriptionId
       in: path
       required: true
-      schema:
-        type: string
-    resourceName:
-      name: resourceName
-      in: path
-      required: true
-      description: Name of the Recovery Services Vault
       schema:
         type: string
   securitySchemes:
