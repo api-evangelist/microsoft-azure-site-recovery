@@ -81,6 +81,9 @@ apis:
   - type: OpenAPI
     url: openapi/microsoft-azure-site-recovery-replicationprotecteditems-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/microsoft-azure-site-recovery-capability-edges.yml
+  name: Azure Site Recovery Business Capability Map
 - type: Website
   url: https://microsoft.com
 - type: AgenticAccess

@@ -1,0 +1,39 @@
+slug: microsoft-azure-site-recovery
+provider: Azure Site Recovery
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: RecoveryPlans
+  spec_file: microsoft-azure-site-recovery-recoveryplans-api-openapi.yml
+  capability_id: BC-160.20
+  capability_id_l1: BC-160
+  capability_name: Disaster Recovery Management
+  confidence: 0.76
+  evidence: '''managing recovery plans on Recovery Services vaults''; PUT .../replicationRecoveryPlans/{recoveryPlanName}
+    ''Create or update a recovery plan'''
+  reason: Operations author and maintain disaster-recovery plans governing failover of VMs and servers,
+    which is IT disaster recovery management (BC-160.20); a SaaS-service resilience reading (BC-4220.60)
+    is possible, hence not maximal confidence.
+- tag: ReplicationProtectedItems
+  spec_file: microsoft-azure-site-recovery-replicationprotecteditems-api-openapi.yml
+  capability_id: BC-160.20
+  capability_id_l1: BC-160
+  capability_name: Disaster Recovery Management
+  confidence: 0.72
+  evidence: '"Enable replication protection for an item"; "Execute planned failover"; "Execute test failover";
+    "Commit failover" — vendor: "management of disaster recovery for Azure VMs, on-premises VMs, and physical
+    servers"'
+  reason: Operations enable replication, test/planned/unplanned failover and reprotect for protected workloads
+    — this is IT disaster recovery execution, matching Disaster Recovery Management. Chosen over the SaaS-specific
+    resilience capability because the scope explicitly spans on-premises VMs and physical servers, i.e.
+    general IT DR rather than a single SaaS service.
