@@ -104,6 +104,19 @@ paths:
           description: No Content
 components:
   parameters:
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      schema:
+        type: string
+        default: '2026-02-01'
+    subscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      schema:
+        type: string
     resourceGroupName:
       name: resourceGroupName
       in: path
@@ -117,19 +130,6 @@ components:
       in: path
       required: true
       description: Name of the Recovery Services Vault
-      schema:
-        type: string
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      schema:
-        type: string
-        default: '2026-02-01'
-    subscriptionId:
-      name: subscriptionId
-      in: path
-      required: true
       schema:
         type: string
   securitySchemes:

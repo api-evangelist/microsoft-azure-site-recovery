@@ -261,6 +261,19 @@ paths:
                 $ref: '#/components/schemas/ReplicationProtectedItemCollection'
 components:
   parameters:
+    protectionContainerName:
+      name: protectionContainerName
+      in: path
+      required: true
+      schema:
+        type: string
+    apiVersion:
+      name: api-version
+      in: query
+      required: true
+      schema:
+        type: string
+        default: '2026-02-01'
     resourceGroupName:
       name: resourceGroupName
       in: path
@@ -276,25 +289,6 @@ components:
       description: Name of the Recovery Services Vault
       schema:
         type: string
-    protectionContainerName:
-      name: protectionContainerName
-      in: path
-      required: true
-      schema:
-        type: string
-    apiVersion:
-      name: api-version
-      in: query
-      required: true
-      schema:
-        type: string
-        default: '2026-02-01'
-    subscriptionId:
-      name: subscriptionId
-      in: path
-      required: true
-      schema:
-        type: string
     replicatedProtectedItemName:
       name: replicatedProtectedItemName
       in: path
@@ -307,7 +301,34 @@ components:
       required: true
       schema:
         type: string
+    subscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
+    ReplicationProtectedItemCollection:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReplicationProtectedItem'
+        nextLink:
+          type: string
+    EnableProtectionInput:
+      type: object
+      properties:
+        properties:
+          type: object
+          properties:
+            policyId:
+              type: string
+            protectableItemId:
+              type: string
+            providerSpecificDetails:
+              type: object
     ReplicationProtectedItem:
       type: object
       properties:
@@ -321,27 +342,6 @@ components:
           type: string
         properties:
           type: object
-    EnableProtectionInput:
-      type: object
-      properties:
-        properties:
-          type: object
-          properties:
-            policyId:
-              type: string
-            protectableItemId:
-              type: string
-            providerSpecificDetails:
-              type: object
-    ReplicationProtectedItemCollection:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReplicationProtectedItem'
-        nextLink:
-          type: string
   securitySchemes:
     azure_auth:
       type: oauth2
